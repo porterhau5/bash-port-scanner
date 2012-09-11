@@ -16,8 +16,8 @@ Example: scan google.com 78-82
 Output
 ------
 <pre>
-user@host:~/bash-port/scanner$ . scanner
-user@host:~/bash-port/scanner$ scan google.com 78-82
+user@host:~/bash-port-scanner$ . scanner
+user@host:~/bash-port-scanner$ scan google.com 78-82
 78/tcp closed
 79/tcp closed
 80/tcp open
