@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+# scanner - a port scanner (TCP) implemented in bash
+#
+# usage:
+# source this file first: . scanner
+# scan <host> <port, ports, port-range>
+# 
+# example:
+# scan google.com 78-82
+# scan google.com 25,80,443
+
+# alarm - waits $1 amount of seconds before killing $2
+# 	$1: number of seconds
+#	$2: function to execute
+function alarm() {
+    timeout=$1; shift;
+    bash -c "$@" &
+    pid=$!
+    {
+      sleep $timeout
+      kill $pid 2> /dev/null
+    } &
+    wait $pid 2> /dev/null
+    return $?
+}
+
+# scan - attempts to write to /dev/tcp/$1/$2; if write is successful, port is open
+#	$1: host or IP
+#	$2: port(s) or port range
+function scan() {
+  if [[ -z $1 || -z $2 ]]; then
+    echo "Usage: $0 <host> <port, ports, or port-range>"
+    return
+  fi
+
+  local host=$1
+  local ports=()
+  case $2 in
+    *-*)
+      IFS=- read start end <<< "$2"
+      for ((port=start; port <= end; port++)); do
+        ports+=($port)
+      done
+      ;;
+    *,*)
+      IFS=, read -ra ports <<< "$2"
+      ;;
+    *)
+      ports+=($2)
+      ;;
+  esac
+
+  for port in "${ports[@]}"; do
+    alarm 1 "echo >/dev/tcp/$host/$port" &&
+      echo "$port/tcp open" ||
+      echo "$port/tcp closed"
+  done
+}
