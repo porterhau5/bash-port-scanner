@@ -9,7 +9,7 @@ Usage
 First, source the functions:
 . scanner
 
-scan <host> <port, ports, port-range>
+scan &lt;host&gt; &lt;port, ports, port-range&gt;
 
 Example: scan google.com 78-82
 
