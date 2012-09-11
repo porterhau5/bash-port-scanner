@@ -17,13 +17,13 @@ Output
 ------
 <pre>
 user@host:~/bash-port/scanner$ . scanner
-user@host:~/bash-port/scanner$ scan 78-82 google.com
+user@host:~/bash-port/scanner$ scan google.com 78-82
 78/tcp closed
 79/tcp closed
 80/tcp open
 81/tcp closed
 82/tcp closed
-user@host:~/bash-port-scanner$ scan 25,80,443 google.com
+user@host:~/bash-port-scanner$ scan google.com 25,80,443
 25/tcp closed
 80/tcp open
 443/tcp open
