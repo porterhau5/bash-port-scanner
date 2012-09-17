@@ -7,11 +7,13 @@ Usage
 -----
 
 First, source the functions:
-. scanner
+<pre>. scanner</pre>
 
-scan &lt;host&gt; &lt;port, ports, port-range&gt;
+Execute the scan with the following syntax:
+<pre>scan &lt;host&gt; &lt;port, ports, port-range&gt;</pre>
 
-Example: scan google.com 78-82
+Example: 
+<pre>scan google.com 78-82</pre>
 
 Output
 ------
