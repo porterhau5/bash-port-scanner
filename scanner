@@ -1,14 +1,18 @@
 #!/bin/bash
-#
-# scanner - a port scanner (TCP) implemented in bash
-#
-# usage:
-# source this file first: . scanner
-# scan <host> <port, ports, port-range>
-# 
-# example:
-# scan google.com 78-82
-# scan google.com 25,80,443
+
+# +---------------------------------------------------------------+
+# | Name: scanner                                                 |
+# |                                                               |
+# | Purpose: Port scanner (TCP) implemented in bash               |
+# |                                                               |
+# | Date: 2012/09/16                                              |
+# |                                                               |
+# | Usage: source this file first: . scanner                      |
+# |        scan <host> <port, ports, port-range>                  |
+# |                                                               |
+# | Example: scan google.com 78-82                                |
+# |          scan google.com 25,80,443                            |
+# +---------------------------------------------------------------+
 
 # alarm - waits $1 amount of seconds before killing $2
 # 	$1: number of seconds
