@@ -12,8 +12,14 @@ First, source the functions:
 Execute the scan with the following syntax:
 <pre>scan &lt;host&gt; &lt;port, ports, port-range&gt;</pre>
 
-Example: 
-<pre>scan google.com 78-82</pre>
+Examples: 
+<pre>
+scan google.com 80
+
+scan google.com 78-82
+
+scan google.com 25,80,443
+</pre>
 
 Output
 ------
